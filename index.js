@@ -66,15 +66,16 @@ function generateText(event)
 
 }
 
-function sendDataToServer() {
-    fetch('https://click-tracker-server.onrender.com/save-clicks', {  // Use the correct API route
+function sendDataToServer(data) {
+    fetch('https://click-tracker-server.onrender.com', {  // Ensure this endpoint is correct
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(clickData)  // Send the actual clickData array
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
-    .then(response => response.json())  
+    .then(response => response.json())
     .then(result => console.log('✅ Data sent successfully:', result))
     .catch(error => console.error('❌ Error sending data:', error));
 }
-
 
