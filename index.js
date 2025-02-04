@@ -68,7 +68,7 @@ function generateText(event)
 
 async function sendDataToServer() {
     try {
-        const response = await fetch('https://click-tracker-sever.onrender.com', { // Replace with your Render server URL
+        const response = await fetch('https://click-tracker-server.onrender.com', { // Replace with your Render server URL
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
