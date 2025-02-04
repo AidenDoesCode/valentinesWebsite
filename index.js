@@ -84,9 +84,6 @@ async function sendDataToServer() {
         const result = await response.json();
         console.log('Data sent successfully:', result);
 
-        // Optionally, reset the clickData array after successful submission:
-        clickData = []; // Clear the array
-
     } catch (error) {
         console.error('Error sending data:', error);
         // Display the error to the user or handle it appropriately
@@ -96,6 +93,4 @@ async function sendDataToServer() {
 
 // Call sendDataToServer() when you want to send the data (e.g., on a button click):
 document.getElementById('submitButton').addEventListener('click', sendDataToServer); // Example
-
-// ... rest of your index.js code (including generateText and other functions)
 
