@@ -5,43 +5,107 @@
     <center>
         <h1>Here are your choices for home cooked meals :D</h1>
     </center>
+
+    <!--CSS STYLE SHEET-->
+    <style>
+        body
+        {
+            background: linear-gradient(#FFBBC1, #FF8896); 
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        h2
+        {
+            color: #FFFFFF;
+            font-family: "consolas", "sans-seriff";
+        }
+        h1
+        {
+            color: #FF3334;
+            font-family: "consolas", "sans-seriff";
+        }
+        h3
+        {
+            color: #C00000;
+            font-family: "consolas", "sans-seriff";
+        }
+        button
+        {
+            background-color: #C00000;
+            font-family: "consolas", "sans-seriff";
+            color: #FFFFFF;
+        }
+    </style>
+
+
     <hr>
 </head>
 <body>
-    <!--ADD IMAGES FOR EACH ENTRY-->
+    <script src="index.js"></script>
+
     <center>
         <h2>Grilled Cheese</h2>
-        <button>This one!</button>
+        <img src="/images/grilled-cheese.jpg" height = "200" width="300" alt="grilled cheese" title="mmm grilled chez">
+        <br>
+        <div class="container">
+            <button data-text="good choice of grilled cheese!" onclick="generateText(event)">This one!</button>
+            <p class="output"></p>
+        </div>
     </center>
     <hr>
 
     <center>
-        <h2>Indian Curry</h2>
-        <button>This one!</button>
+        <h2 >Indian Curry</h2>
+        <img src="/images/indian-curry.jpg" height = "200" width="300" alt="indian curry" title="i lov curry">
+        <br>
+        
+        <div class="container">
+            <button data-text="good choice of curry!" onclick="generateText(event)">This one!</button>
+            <p class="output"></p>
+        </div>
+        
     </center>
     <hr>
 
     <center>
         <h2>Taco Night</h2>
-        <button>This one!</button>
+        <img src="/images/taco-night.jpg" height = "200" width="300" alt="taco night" title="taco night sounds good">
+        <br>
+        <div class="container">
+            <button data-text="good choice of tacos!" onclick="generateText(event)"> This one!</button>
+            <p class="output"></p>
+        </div>
+        
     </center>
     <hr>
 
     <center>
         <h2>Korean Beef and Rice</h2>
-        <button>This one!</button>
+        <img src="/images/k-bee-rice.jpg" height = "200" width="300" alt="korean beef and rice" title="beef and rice is good as well">
+        <br>
+        <div class="container">
+            <button data-text="good choice of korean beef and rice!" onclick="generateText(event)">This one!</button>
+            <p class="output"></p>
+        </div>
     </center>
     <hr>
 
     <center>
         <h2>Stir Fry</h2>
-        <button>This one!</button>
+        <img src="/images/stir-fry.jpg" height = "200" width="300" alt="stir fry" title="I love stir fry veggies">
+        <br>
+        <div class="container">
+            <button data-text="good choice of stir fry!" onclick="generateText(event)">This one!</button>
+            <p class="output"></p>
+        </div>
+        
     </center>
     <hr>
     
     <center>
         <a href="drink-choices.html" target="_self">
             <h2>Lets move on to your choice of drinks!</h2>
+            <p id="output"></p>
         </a>
     </center>
     
