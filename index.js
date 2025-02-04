@@ -34,7 +34,7 @@ function thirdYesClicked()
     }
 }
 
-
+// Frontend
 let clickData = [];
 
 function generateText(event) {
@@ -45,11 +45,8 @@ function generateText(event) {
     outputElement.innerText = text;
 
     const timestamp = new Date().toLocaleTimeString();
-    clickData.push({ text: text, timestamp: timestamp });
 
-    console.log("Button clicked:", text);
-    console.log("Updated clickData array:", clickData);
-
+    clickData.push({ text: text, timestamp: timestamp }); // Add to clickData *before* sending
     sendDataToServer();
 }
 
@@ -70,7 +67,9 @@ async function sendDataToServer() {
 
         const result = await response.json();
         console.log('Data sent successfully:', result);
-        clickData = []; // Clear after successful send
+        clickData = result.allData || []; // Update frontend clickData
+        console.log("Frontend clickData after server update:", clickData);
+
     } catch (error) {
         console.error('Error sending data:', error);
         alert("There was an error saving your progress. Please try again later.");
@@ -82,8 +81,7 @@ choiceButtons.forEach(button => {
     button.addEventListener('click', generateText);
 });
 
-// If you have a submit button (add it to your HTML if you do):
-const submitButton = document.getElementById('submitButton');
+const submitButton = document.getElementById('submitButton'); // If you have a submit button
 if (submitButton) {
     submitButton.addEventListener('click', sendDataToServer);
 }
