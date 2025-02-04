@@ -4,32 +4,30 @@
 <head>
     <center><h1>Here are your choices of drinks my lady</h1></center>
 
-    <!--CSS STYLE SHEET-->
     <style>
-        body
-        {
-            background: linear-gradient(#FFBBC1, #FF8896); 
+        body {
+            background: linear-gradient(#FFBBC1, #FF8896);
             background-repeat: no-repeat;
             background-attachment: fixed;
-           font-family: "consolas", "sans-seriff";
+            font-family: "consolas", "sans-seriff";
         }
-        h2
-        {
+
+        h2 {
             color: #FFFFFF;
             font-family: "consolas", "sans-seriff";
         }
-        h1
-        {
+
+        h1 {
             color: #FF3334;
             font-family: "consolas", "sans-seriff";
         }
-        h3
-        {
+
+        h3 {
             color: #FF3334;
             font-family: "consolas", "sans-seriff";
         }
-        button
-        {
+
+        button {
             background-color: #C00000;
             font-family: "consolas", "sans-seriff";
             color: #FFFFFF;
@@ -40,74 +38,73 @@
 </head>
 
 <body>
-    <script src="index.js"></script>
-
     <center>
         <h2>Water</h2>
-        <img src="images/water.JPG" height = "200" width="300" alt="water" title="water so thrist">
+        <img src="images/water.JPG" height="200" width="300" alt="water" title="water so thrist">
         <br>
         <div class="container">
-            <button data-text="mm water so thirsty" onclick="generateText(event)">This one!</button>
+            <button class="choice-button" data-text="mm water so thirsty">This one!</button>
             <p class="output"></p>
         </div>
-        
     </center>
+
     <hr>
 
     <center>
         <h2>Sparkling Grape Juice</h2>
-        <img src="images/sparkling-grape.JPG" height = "200" width="300" alt="sparkling grape juice" title="i love juice">
+        <img src="images/sparkling-grape.JPG" height="200" width="300" alt="sparkling grape juice" title="i love juice">
         <br>
         <div class="container">
-            <button data-text="Sparkling grape juice is my shit" onclick="generateText(event)">This one!</button>
+            <button class="choice-button" data-text="Sparkling grape juice is my shit">This one!</button>
             <p class="output"></p>
         </div>
-        
     </center>
+
     <hr>
 
     <center>
         <h2>Soda (of your choice)</h2>
-        <img src="images/soda.JPG" height = "200" width="300" alt="soda" title="roo beer nooo">
+        <img src="images/soda.JPG" height="200" width="300" alt="soda" title="roo beer nooo">
         <br>
         <div class="container">
-            <button data-text="rooo beer noooo" onclick="generateText(event)">This one!</button>
+            <button class="choice-button" data-text="rooo beer noooo">This one!</button>
             <p class="output"></p>
         </div>
-        
     </center>
+
     <hr>
 
     <center>
         <h2>Boba</h2>
-        <img src="images/boba.JPG" height = "200" width="300" alt="boba" title="boba so damn good">
+        <img src="images/boba.JPG" height="200" width="300" alt="boba" title="boba so damn good">
         <br>
         <div class="container">
-            <button data-text="omg BOBA" onclick="generateText(event)">This one!</button>
+            <button class="choice-button" data-text="omg BOBA">This one!</button>
             <p class="output"></p>
         </div>
-        
     </center>
+
     <hr>
 
     <center>
         <h2>Coffee</h2>
-        <img src="images/coffee.JPG" height = "200" width="300" alt="coffee" title="I know you addicted and stuff">
+        <img src="images/coffee.JPG" height="200" width="300" alt="coffee" title="I know you addicted and stuff">
         <br>
         <div class="container">
-            <button data-text="how did I know it was gonna be coffee" onclick="generateText(event)">This one!</button>
+            <button class="choice-button" data-text="how did I know it was gonna be coffee">This one!</button>
             <p class="output"></p>
         </div>
-        
     </center>
+
     <hr>
-    
+
     <center>
         <a href="movie-choices.html" target="_self">
             <h2>Lets move on to the ideal movie!</h2>
-            <p class="output"></p>
+            <p id="output"></p>
         </a>
-        
     </center>
 
+    <script src="index.js" defer></script>
 </body>
+</html>

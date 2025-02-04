@@ -35,62 +35,55 @@ function thirdYesClicked()
 }
 
 
-let clickData = []; //array for the data when clicked
+let clickData = [];
 
-//function for when one of the choices are clicked
-function generateText(event)
-{
-    // Get the clicked button's parent container
-    const container = event.target.closest('.container');
-    // Find the output paragraph inside this container
+function generateText(event) {
+    const button = event.target;
+    const container = button.closest('.container');
     const outputElement = container.querySelector('.output');
-    //Get the text from buttons data attribute
-    const text = event.target.getAttribute('data-text');
-    // Update the output text
+    const text = button.getAttribute('data-text');
     outputElement.innerText = text;
 
-    // Store data in the array
     const timestamp = new Date().toLocaleTimeString();
     clickData.push({ text: text, timestamp: timestamp });
 
-
-    // Print the data to console
     console.log("Button clicked:", text);
     console.log("Updated clickData array:", clickData);
-    clickData.forEach((entry, index) => {
-    console.log(`Entry ${index + 1}:`, entry);
-
-    });
 
     sendDataToServer();
-
 }
 
 async function sendDataToServer() {
     try {
-        const response = await fetch('https://click-tracker-server.onrender.com', { // Replace with your Render server URL
+        const response = await fetch('https://click-tracker-server.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(clickData) // Send the clickData array
+            body: JSON.stringify(clickData)
         });
 
         if (!response.ok) {
-            const errorData = await response.json(); // Get error details from the server (if any)
+            const errorData = await response.json();
             throw new Error(`Server error: ${response.status} - ${errorData.message || response.statusText}`);
         }
 
         const result = await response.json();
         console.log('Data sent successfully:', result);
-
+        clickData = []; // Clear after successful send
     } catch (error) {
         console.error('Error sending data:', error);
-        // Display the error to the user or handle it appropriately
-        alert("There was an error saving your progress. Please try again later.")
+        alert("There was an error saving your progress. Please try again later.");
     }
 }
 
-// Call sendDataToServer() when you want to send the data (e.g., on a button click):
-document.getElementById('submitButton').addEventListener('click', sendDataToServer); // Example
+const choiceButtons = document.querySelectorAll('.choice-button');
+choiceButtons.forEach(button => {
+    button.addEventListener('click', generateText);
+});
 
+// If you have a submit button (add it to your HTML if you do):
+const submitButton = document.getElementById('submitButton');
+if (submitButton) {
+    submitButton.addEventListener('click', sendDataToServer);
+}
