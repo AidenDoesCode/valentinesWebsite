@@ -34,7 +34,7 @@ function thirdYesClicked()
     }
 }
 
-
+let clickdata = [];
 
 function generateText(event) {
     const button = event.target;
