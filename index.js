@@ -58,7 +58,21 @@ function generateText(event)
     console.log("Button clicked:", text);
     console.log("Updated clickData array:", clickData);
     clickData.forEach((entry, index) => {
-        console.log(`Entry ${index + 1}:`, entry);
+    console.log(`Entry ${index + 1}:`, entry);
+
     });
 
+    sendDataToServer();
+
+}
+
+function sendDataToServer() {
+    fetch('http://localhost:3000/save-clicks', { // Send data to your local server
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(clickData)
+    })
+    .then(response => response.json())
+    .then(data => console.log("Data saved on server:", data))
+    .catch(error => console.error("Error sending data:", error));
 }
