@@ -66,13 +66,16 @@ function generateText(event)
 
 }
 
-function sendDataToServer() {
-    fetch('http://localhost:3000/save-clicks', { // Send data to your local server
+function sendDataToServer(data) {
+    fetch('https://click-tracker-sever.onrender.com', {  // Update this with your Render URL
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(clickData)
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(data => console.log("Data saved on server:", data))
-    .catch(error => console.error("Error sending data:", error));
+    .then(result => console.log('✅ Data sent successfully:', result))
+    .catch(error => console.error('❌ Error sending data:', error));
 }
+
