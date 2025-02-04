@@ -45,20 +45,19 @@ function generateText(event) {
 
     const timestamp = new Date().toLocaleTimeString();
 
-    const newClick = { text: text, timestamp: timestamp }; // Create a new click object
-    clickData.push(newClick); // Add to clickData
-
-    sendDataToServer([newClick]); // Send *only* the new click(s)
+    const newClick = { text: text, timestamp: timestamp };
+    clickData.push(newClick); // Now clickData is defined
+    sendDataToServer([newClick]);
 }
 
-async function sendDataToServer(dataToSend) { // Accept dataToSend as an argument
+async function sendDataToServer(dataToSend) {
     try {
-        const response = await fetch('https://click-tracker-server.onrender.com', { // Or your backend URL
+        const response = await fetch('https://click-tracker-server.onrender.com', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(dataToSend) // Send only the new data
+            body: JSON.stringify(dataToSend)
         });
 
         if (!response.ok) {
@@ -68,7 +67,7 @@ async function sendDataToServer(dataToSend) { // Accept dataToSend as an argumen
 
         const result = await response.json();
         console.log('Data sent successfully:', result);
-        clickData = result.allData || []; // Update with ALL data from the server
+        clickData = result.allData || []; // Update clickData
         console.log("Frontend clickData after server update:", clickData);
 
     } catch (error) {
@@ -82,7 +81,7 @@ choiceButtons.forEach(button => {
     button.addEventListener('click', generateText);
 });
 
-const submitButton = document.getElementById('submitButton'); // If you have a submit button
+const submitButton = document.getElementById('submitButton');
 if (submitButton) {
-    submitButton.addEventListener('click', sendDataToServer); // Send all data on submit (if needed)
+    submitButton.addEventListener('click', sendDataToServer);
 }
