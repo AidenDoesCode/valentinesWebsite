@@ -67,7 +67,7 @@ function generateText(event)
 }
 
 function sendDataToServer(data) {
-    fetch('https://click-tracker-server.onrender.com/save-clicks', {  // Correct URL with /save-clicks
+    fetch('https://click-tracker-server.onrender.com', {  // Correct URL with /save-clicks
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
